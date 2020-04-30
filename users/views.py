@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as do_login
 from django.contrib.auth.forms import UserCreationForm
-
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -45,6 +45,7 @@ def login(request):
 
     return render(request, 'users/login.html', {'form': form})
 
+@login_required
 def logout(request):
     # finish session
     do_logout(request)
