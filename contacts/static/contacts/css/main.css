@@ -1,0 +1,20 @@
+:root {
+    --bg: #40424D;
+}
+
+.body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #40424D;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+}
+
+.far {
+    color: #1569D9;
+}
+
+

@@ -3,13 +3,9 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    user = request.user
-    context = {'user': user}
-    return render(request, 'contacts/index.html', context)
-
-
-def login(request):
-    pass
-
-def register(request):
-    pass
+    if request.user.is_authenticated:
+        user = request.user
+        context = {'user': user}
+        return render(request, 'contacts/index.html', context)
+    
+    return render(request, 'users/login.html')
