@@ -35,5 +35,5 @@ def delete_contact(request, id):
     contact.delete()
 
     # return render(request, 'contacts/list_contact.html', {})
-    return redirect('contacts/')
+    return redirect('/contacts')
 
