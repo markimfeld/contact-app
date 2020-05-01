@@ -121,8 +121,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_URL = '/static/'
 
+# for templates
+MEDIA_URL = '/media/'
+# absolute path for filesystem
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # BOOTSTRAP 4
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
-LOGIN_URL = '/login/'
+LOGIN_URL = '/users/login'

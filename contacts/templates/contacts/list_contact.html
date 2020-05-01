@@ -1,0 +1,21 @@
+{% extends './base.html' %}
+
+{% block content %}
+
+<div class="container">
+    {% for c in contacts %}
+    <div class="row m-4 mx-auto">
+        <div class="card col-4 text-center mx-auto">
+            <img src="{{ c.avatar.url }}" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title h3">{{ c.first_name }}</h5>
+                <p class="card-text h4">{{ c.phone_number.get.number }}</p>
+                <a href="#" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
