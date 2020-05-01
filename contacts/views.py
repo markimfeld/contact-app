@@ -25,3 +25,15 @@ def list_contacts(request):
 @login_required
 def create_contact(request):
     pass
+
+@login_required
+def delete_contact(request, id):
+    
+    contact = Contact.objects.get(pk=id)
+
+    # if contact is not None:
+    contact.delete()
+
+    # return render(request, 'contacts/list_contact.html', {})
+    return redirect('contacts/')
+
