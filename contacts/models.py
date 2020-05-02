@@ -4,9 +4,20 @@ from django.utils.translation import gettext_lazy as _
 import datetime
 
 class Contact(models.Model):
+    class Category(models.TextChoices):
+        FRIEND = 'FR', _('Friend')
+        FAMILY = 'FY', _('Family')
+        COWORKER = 'CO', _('Coworker')
+        OTHER = 'OR', _('Other')
+    
     first_name = models.CharField(max_length=50)
     phone_number = models.IntegerField(blank=False)
     email = models.EmailField(blank=True)
+    category = models.CharField(
+        max_length=2,
+        choices=Category.choices,
+        default=Category.FAMILY,
+    )
     company_name = models.CharField(max_length=100, blank=True)
     job = models.CharField(max_length=100, blank=True)
     website = models.CharField(max_length=255, blank=True)
@@ -18,7 +29,7 @@ class Contact(models.Model):
     description = models.TextField(blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
-
+    
 
     class Meta:
         ordering = ['first_name']

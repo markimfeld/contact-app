@@ -20,7 +20,7 @@ def index(request):
 
 @login_required
 def list_contacts(request):
-    contacts = Contact.objects.filter(user=request.user.id)
+    contacts = Contact.objects.filter(user=request.user.id).filter(category='CO')
 
     context = {'contacts': contacts, 'date': date}
     return render(request, 'contacts/list_contact.html', context)

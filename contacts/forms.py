@@ -10,6 +10,7 @@ class ContactForm(forms.ModelForm):
             'first_name': forms.TextInput(attrs={'placeholder': 'First Name', 'class': 'form-control'}),
             'phone_number': forms.NumberInput(attrs={'placeholder': 'Phone Number', 'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'placeholder': 'Email', 'class': 'form-control'}),
+            'category': forms.Select(attrs={'class': 'form-control'}),
             'company_name': forms.TextInput(attrs={'placeholder': 'Company', 'class': 'form-control'}),
             'job': forms.TextInput(attrs={'placeholder': 'Job', 'class': 'form-control'}),
             'website': forms.URLInput(attrs={'placeholder': 'Website', 'class': 'form-control'}),
