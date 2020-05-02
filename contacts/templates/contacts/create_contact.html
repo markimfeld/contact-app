@@ -1,0 +1,67 @@
+{% extends './base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container p-5">
+    <div class="row">
+        <div class="card mx-auto">
+            <div class="card-header bg-dark">
+                <h4 class="card-title text-center text-white h2">Add new Contact</h4>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form-group">
+                        {{ field }}
+                    </div>
+                    {% endfor %}
+                    <!-- <div class="form-group">
+                        <class class="form-row">
+                            <div class="col">
+                                {{ form.first_name }}
+                            </div>
+                            <div class="col">
+                                {{ form.phone_number }}
+                            </div>
+                        </class>
+                    </div>
+                    <div class="form-group">
+                        {{ form.email }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.company_name }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.job }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.website }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.address }}
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col">
+                                {{ form.city }}
+                            </div>
+                            <div class="col">
+                                {{ form.country }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form.avatar }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.description }}
+                    </div> -->
+                    <input class="btn btn-primary btn-block" type="submit" value="Save">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

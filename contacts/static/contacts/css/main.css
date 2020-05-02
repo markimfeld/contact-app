@@ -18,3 +18,13 @@
 }
 
 
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    line-height: 60px;
+    background-color: #343A40;
+    color: white;
+}

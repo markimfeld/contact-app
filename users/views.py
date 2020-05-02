@@ -5,45 +5,54 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as do_login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+import datetime
+
+date = datetime.date.today
 
 # Create your views here.
 
 def register(request):
-    form = UserCreationForm()
-    if request.method == 'POST':
-        form = UserCreationForm(data=request.POST)
-        if form.is_valid():
-            user = form.save()
+    if not request.user.is_authenticated:    
+        form = UserCreationForm()
+        if request.method == 'POST':
+            form = UserCreationForm(data=request.POST)
+            if form.is_valid():
+                user = form.save()
 
-            if user is not None:
-                do_login(request, user)
+                if user is not None:
+                    do_login(request, user)
 
-                return redirect('/')
+                    return redirect('/')
 
-    form.fields['username'].help_text = None
-    form.fields['password1'].help_text = None
-    form.fields['password2'].help_text = None
+        form.fields['username'].help_text = None
+        form.fields['password1'].help_text = None
+        form.fields['password2'].help_text = None
 
-    return render(request, 'users/register.html', {'form': form})
+        return render(request, 'users/register.html', {'form': form, 'date': date})
+    else:
+        return redirect('/')
 
 def login(request):
 
-    form = AuthenticationForm()
-    if request.method == 'POST':
-        # add data to the form
-        form = AuthenticationForm(data=request.POST)
-        if form.is_valid():
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
+    if not request.user.is_authenticated:
+        form = AuthenticationForm()
+        if request.method == 'POST':
+            # add data to the form
+            form = AuthenticationForm(data=request.POST)
+            if form.is_valid():
+                username = form.cleaned_data['username']
+                password = form.cleaned_data['password']
 
-            user = authenticate(username=username, password=password)
+                user = authenticate(username=username, password=password)
 
-            if user is not None:
-                do_login(request, user)
+                if user is not None:
+                    do_login(request, user)
 
-                return redirect('/')
+                    return redirect('/')
 
-    return render(request, 'users/login.html', {'form': form})
+        return render(request, 'users/login.html', {'form': form, 'date': date})
+    else:
+        return redirect('/')
 
 @login_required
 def logout(request):
