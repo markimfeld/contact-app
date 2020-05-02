@@ -8,14 +8,10 @@
         <div class="card col-6 text-center mx-auto">
             <img src="{{ c.avatar.url }}" class="card-img-top rounded-circle">
             <div class="card-body">
-                <h5 class="card-title h3">{{ c.first_name }}</h5>
+                <h5 class="card-title h3">{{ c.id }} - {{ c.first_name }}</h5>
                 <p class="card-text h4">{{ c.phone_number }}</p>
-                <a href="#" class="btn btn-primary">Edit</a>
-                <a href="contacts/delete/{{c.id}}" class="btn btn-danger">Delete</a>
-                <!-- Button trigger modal -->
-                <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalexample">
-                    Delete
-                </button> -->
+                <a href="contacts/{{ c.id }}/edit" class="btn btn-secondary">Edit</a>
+                <a href="contacts/{{ c.id }}/delete" class="btn btn-danger">Delete</a>
             </div>
         </div>
         {% empty %}
@@ -27,36 +23,5 @@
             </div>
         </div>
     </div>
-
-
-
     {% endfor %}
-    <!-- Modal -->
-    <div class="modal fade" id="modalexample" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title h2" id="exampleModalLabel">Delete Contact</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure to delete {{ c.first_name }}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a href="contacts/delete/{{ c.id }}" class="btn btn-success">Yes, delete it!</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-{% endblock %}
+    {% endblock %}

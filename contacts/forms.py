@@ -16,6 +16,6 @@ class ContactForm(forms.ModelForm):
             'address': forms.TextInput(attrs={'placeholder': 'Address', 'class': 'form-control'}),
             'city': forms.TextInput(attrs={'placeholder': 'City', 'class': 'form-control'}),
             'country': forms.TextInput(attrs={'placeholder': 'Country', 'class': 'form-control'}),
-            'avatar': forms.ClearableFileInput(attrs={'placeholder': 'Avatar', 'class': 'form-control-file'}),
+            'avatar': forms.ClearableFileInput(attrs={'class': 'form-control-file'}),
             'description': forms.Textarea(attrs={'placeholder': 'Notes', 'class': 'form-control'}),
         }
