@@ -3,55 +3,49 @@
 {% block content %}
 
 <div class="container">
-    <div class="row mt-5">
-        <form action="" method="get" class="form-inline mx-auto">
-            <div class="form-group row">
-                <div class="form-group col-md-12">
-                    <label for="category" class="col-sm-3 col-form-label">Category</label>
-                    <div class="col-sm-6">
-                        <select name="category" id="category" class="form-control">
-                            <option selected>Choose...</option>
-                            {% for cat in categories %}
-                            <option value="{{ cat }}">{{ cat }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div class="col-sm-3">
-                        <button type="submit" class="btn btn-primary">Filter</button>
-                    </div>
-                </div>
-
+    <form class="mt-5">
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="inputState">Category</label>
+                <select name="category" id="category" class="form-control">
+                    <option selected>Choose...</option>
+                    {% for cat in categories %}
+                    <option value="{{ cat }}">{{ cat }}</option>
+                    {% endfor %}
+                </select>
             </div>
-        </form>
-        <div class="row my-2">
-            {% for c in contacts %}
-            <div class="col-sm-6 col-md-4 col-lg-3 my-2">
-                <div class="card text-center">
-                    <img src="{{ c.avatar.url }}" class="card-img-top py-3 mx-auto rounded-circle">
-                    <div class="card-body">
-                        <h5 class="card-title h3">{{ c.first_name }}</h5>
-                        <p class="card-text">{{ c.category }}</p>
-                        <p class="card-text h4">{{ c.phone_number }}</p>
-                        <a href="contacts/{{ c.id }}/edit" class="btn btn-secondary">Edit</a>
-                        <a href="contacts/{{ c.id }}/delete" class="btn btn-danger">Delete</a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Created {{ c.created }}</small>
-                    </div>
-                </div>
-            </div>
-            {% empty %}
-            <div class="row mx-auto">
-                <div class="col-md-12 my-5">
-                    <div class="alert alert-primary mx-auto" role="alert">
-                        There are not contacts saved yet! <a href="contacts/create"
-                            class="alert-link btn-block text-center">Add
-                            new
-                            contact.</a>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
         </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <div class="row my-2">
+        {% for c in contacts %}
+        <div class="col-sm-6 col-md-4 col-lg-3 my-2">
+            <div class="card text-center">
+                <img src="{{ c.avatar.url }}" class="card-img-top py-3 mx-auto rounded-circle">
+                <div class="card-body">
+                    <h5 class="card-title h3">{{ c.first_name }}</h5>
+                    <p class="card-text">{{ c.category }}</p>
+                    <p class="card-text h4">{{ c.phone_number }}</p>
+                    <a href="contacts/{{ c.id }}/edit" class="btn btn-secondary">Edit</a>
+                    <a href="contacts/{{ c.id }}/delete" class="btn btn-danger">Delete</a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Created {{ c.created }}</small>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="row mx-auto">
+            <div class="col-md-12 my-5">
+                <div class="alert alert-primary mx-auto" role="alert">
+                    There are not contacts saved yet! <a href="contacts/create"
+                        class="alert-link btn-block text-center">Add
+                        new
+                        contact.</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-    {% endblock %}
+</div>
+{% endblock %}
