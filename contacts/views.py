@@ -7,6 +7,9 @@ import datetime
 
 date = datetime.date.today
 
+def is_valid_queryparam(param):
+    return param != '' and param is not None
+
 # @login_required(login_url='/users/login')
 @login_required
 def index(request):
@@ -20,9 +23,18 @@ def index(request):
 
 @login_required
 def list_contacts(request):
-    contacts = Contact.objects.filter(user=request.user.id).filter(category='CO')
+    contacts = Contact.objects.filter(user=request.user.id)
+    categories = ['FR', 'FY', 'CO', 'OR']
+    category = request.GET.get('category')
 
-    context = {'contacts': contacts, 'date': date}
+    if is_valid_queryparam(category) and category != 'Choose...':
+        contacts = contacts.filter(category=category)
+
+    context = {
+        'contacts': contacts, 
+        'date': date,
+        'categories': categories
+    }
     return render(request, 'contacts/list_contact.html', context)
 
 @login_required
