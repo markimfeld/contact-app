@@ -1,0 +1,28 @@
+{% extends './base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="card my-5">
+        <img src="{{ contact.avatar.url }}" class="card-img-top ml-3 py-2" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ contact }} - {{ contact.category }}</h5>
+            <p class="card-text">{{ contact.description }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Phone: {{ contact.phone_number }}</li>
+            <li class="list-group-item">Email: {{ contact.email }}</li>
+            <li class="list-group-item">Company: {{ contact.company }}</li>
+            <li class="list-group-item">Address: {{ contact.address }}</li>
+            <li class="list-group-item">City: {{ contact.city }}</li>
+            <li class="list-group-item">Country: {{ contact.country }}</li>
+            <li class="list-group-item">Job: {{ contact.job }}</li>
+            <li class="list-group-item">Website: {{ contact.website }}</li>
+            <li class="list-group-item">Created: {{ contact.created }}</li>
+        </ul>
+        <div class="card-body">
+            <a href="/contacts" class="btn btn-secondary">All Contacts</a>
+            <a href="delete" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

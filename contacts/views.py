@@ -38,6 +38,18 @@ def list_contacts(request):
     return render(request, 'contacts/list_contact.html', context)
 
 @login_required
+def detail_contact(request, pk):
+    
+    contact = Contact.objects.filter(user=request.user.id).get(pk=pk)
+
+    context = {
+        'contact': contact,
+        'date': date
+    }
+
+    return render(request, 'contacts/detail_contact.html', context)
+
+@login_required
 def create_contact(request):
 
     form = ContactForm()

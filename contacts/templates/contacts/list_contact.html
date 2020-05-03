@@ -26,6 +26,7 @@
                     <h5 class="card-title h3">{{ c.first_name }}</h5>
                     <p class="card-text">{{ c.category }}</p>
                     <p class="card-text h4">{{ c.phone_number }}</p>
+                    <a href="contacts/{{ c.id }}/detail" class="btn btn-primary">See</a>
                     <a href="contacts/{{ c.id }}/edit" class="btn btn-secondary">Edit</a>
                     <a href="contacts/{{ c.id }}/delete" class="btn btn-danger">Delete</a>
                 </div>
