@@ -10,14 +10,19 @@ date = datetime.date.today
 def is_valid_queryparam(param):
     return param != '' and param is not None
 
+
+
+def index(request):
+    return render(request, 'contacts/index.html', {})
+
 # @login_required(login_url='/users/login')
 @login_required
-def index(request):
+def profile(request):
     
     # if request.user.is_authenticated:
     user = request.user
     context = {'user': user, 'date': date}
-    return render(request, 'contacts/index.html', context)
+    return render(request, 'contacts/profile.html', context)
     
     # return redirect('users/login')
 
