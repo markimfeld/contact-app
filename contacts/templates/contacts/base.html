@@ -12,15 +12,16 @@
   <!-- AWESOME FONTS-->
   <script src="https://kit.fontawesome.com/4a054c1d9d.js" crossorigin="anonymous"></script>
   <!-- GOOGLE FONTS -->
-  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
   <!-- CUSTOM CSS -->
   <link rel="stylesheet" href="{% static 'contacts/css/main.css' %}">
+  <!-- SWUP -->
+  <!-- <script src="{% static 'contacts/js/app.js' %}"></script> -->
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand align-middle" href="/">
         <i class="fab fa-python fa-1x mr-2 text-white"></i>
@@ -40,7 +41,7 @@
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
               aria-expanded="false"><i class="fas fa-user"></i> {{ user.username.capitalize }}</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Profile</a>
+              <a class="dropdown-item" href="/profile"><i class="fas fa-cog"></i> Profile</a>
               <a class="dropdown-item" href="/users/logout"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
             </div>
           </li>
@@ -75,6 +76,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+
+
 </body>
 
 </html>
