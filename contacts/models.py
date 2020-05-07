@@ -2,6 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
 import datetime
+from django_fields import DefaultStaticImageField
+
+
+default_image_avatar = 'images/default.png'
 
 class Contact(models.Model):
     class Category(models.TextChoices):
@@ -24,7 +28,7 @@ class Contact(models.Model):
     address = models.CharField(max_length=255, blank=True)
     city = models.CharField(max_length=255, blank=True)
     country = models.CharField(max_length=255, blank=True)
-    avatar = models.ImageField(upload_to='images/', default='images/default.png')
+    avatar = models.ImageField(upload_to='images/', default=default_image_avatar)
     created = models.DateField(_('Date'), default=datetime.date.today)
     description = models.TextField(blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

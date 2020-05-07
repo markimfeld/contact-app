@@ -253,7 +253,7 @@ class Command(BaseCommand):
                 city = 'New York',
                 country = 'United States',
                 created = generate_date_created(),
-                user = User.objects.get(pk=2)
+                user = User.objects.get(pk=1)
             )
 
             contact.save()
