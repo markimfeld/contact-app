@@ -1,58 +1,50 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f5f6f5;
-    overflow-x: hidden;
+  font-family: "Roboto", sans-serif;
+  /* background-color: #f5f6f5; */
+  overflow: hidden;
 }
 
 .far {
-    color: #1569D9;
+  color: #1569d9;
 }
 
 .navbar-brand {
-    font-size: 1.5rem;
-    font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  font-family: "Oswald", sans-serif;
 }
 
 .card-img-top {
-    width: 100px;
+  width: 100px;
 }
 
-.index  {
-    height: 100vh;
-    width: 100vw;
-    background: url("/static/contacts/images/bg.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+.index {
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(to bottom, #343a40, #000000);
 }
 
 .masthead {
-    color: white;
-    min-height: 30rem;
-    padding-top: 0rem;
-    width: 100%;
-    height: 100%;
-    /* background-color: black; */
-    background-image: linear-gradient(to bottom, #343A40, #000000);
-    opacity: 0.9;
+  color: white;
+  min-height: 30rem;
+  padding-top: 0rem;
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }
 
 .masthead h1 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 5rem;
-    margin: 0;
-    padding: 0;
+  font-family: "Oswald", sans-serif;
+  font-size: 5rem;
+  margin: 0;
+  padding: 0;
 }
 
 .footer {
-    /* position: fixed;
+  /* position: fixed;
     bottom: 0;
     left: 0; */
-    height: 60px;
-    width: 100%;
-    line-height: 60px;
-    background-color: #343A40;
+  height: 60px;
+  width: 100%;
+  line-height: 60px;
+  background-color: #343a40;
 }
