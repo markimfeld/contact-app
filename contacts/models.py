@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
 import datetime
-from django_fields import DefaultStaticImageField
 
 
 default_image_avatar = 'images/default.png'
