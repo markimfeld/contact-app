@@ -19,7 +19,7 @@ class Contact(models.Model):
     category = models.CharField(
         max_length=2,
         choices=Category.choices,
-        default=Category.FAMILY,
+        default='Category.COWORKER'
     )
     company_name = models.CharField(max_length=100, blank=True)
     job = models.CharField(max_length=100, blank=True)

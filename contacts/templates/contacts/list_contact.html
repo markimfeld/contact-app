@@ -5,30 +5,33 @@
 <div class="container">
     <form class="mt-5">
         <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="inputState">Category</label>
-                <select name="category" id="category" class="form-control">
-                    <option selected>Choose...</option>
-                    {% for cat in categories %}
-                    <option value="{{ cat }}">{{ cat }}</option>
-                    {% endfor %}
+            <div class="input-group">
+                <select name="category" class="form-control custom-select bg-custom text-muted" style="border-radius: 5px 0 0 5px;">
+                  <option selected>Filter by category...</option>
+                  {% for cat in categories %}
+                  <option value="{{ cat }}">{{ cat }}</option>
+                  {% endfor %}
                 </select>
-            </div>
+                <div class="input-group-append">
+                  <button class="btn btn-secondary" type="submit">Search</button>
+                </div>
+              </div>
         </div>
-        <button type="submit" class="btn btn-primary">Search</button>
     </form>
-    <div class="row my-2">
+    <div class="row my-2 overflow-auto">
         {% for c in contacts %}
         <div class="col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="card text-center">
+            <div class="card shadow text-center bg-custom rounded">
                 <img src="{{ c.avatar.url }}" class="card-img-top py-3 mx-auto rounded-circle">
-                <div class="card-body">
+                <div class="card-body text-white">
                     <h5 class="card-title h3">{{ c.first_name }}</h5>
                     <p class="card-text">{{ c.category }}</p>
                     <p class="card-text h4">{{ c.phone_number }}</p>
-                    <a href="contacts/{{ c.id }}/detail" class="btn btn-primary">See</a>
-                    <a href="contacts/{{ c.id }}/edit" class="btn btn-secondary">Edit</a>
-                    <a href="contacts/{{ c.id }}/delete" class="btn btn-danger">Delete</a>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a href="contacts/{{ c.id }}/detail" class="btn btn-success">See</a>
+                        <a href="contacts/{{ c.id }}/edit" class="btn btn-secondary">Edit</a>
+                        <!-- <a href="contacts/{{ c.id }}/delete" class="btn btn-danger">Delete</a> -->
+                    </div>
                 </div>
                 <div class="card-footer">
                     <small class="text-muted">Created {{ c.created }}</small>

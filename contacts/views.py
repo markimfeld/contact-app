@@ -13,7 +13,7 @@ def is_valid_queryparam(param):
 
 
 def index(request):
-    return render(request, 'contacts/index.html', {})
+    return render(request, 'contacts/index.html', {'date': date})
 
 # @login_required(login_url='/users/login')
 @login_required
