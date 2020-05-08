@@ -1,7 +1,5 @@
 {% extends 'contacts/base.html' %}
 
-{% load crispy_forms_tags %}
-
 {% block content %}
 <div class="container-fluid">
   <div class="row d-flex align-items-center justify-content-center" style="height: 100vh;">
@@ -32,7 +30,6 @@
               </div>
             </div>
               {% csrf_token %}
-              <!-- {{ form|crispy }} -->
             </div>
             <button class="btn btn-success btn-block" type="submit">
               Register

@@ -1,7 +1,5 @@
 {% extends './base.html' %}
 
-{% load crispy_forms_tags %}
-
 {% block content %}
 <div class="container-fluid p-4">
     <div class="row mb-5">
@@ -62,11 +60,6 @@
                             {{ form.description }}    
                         </div>
                         {% csrf_token %}
-                        <!-- {% for field in form %}
-                        <div class="form-group">
-                            {{ field }}
-                        </div>
-                        {% endfor %} -->
                         <a href="/contacts" class="btn btn-secondary">Cancel</a>
                         <input class="btn btn-success" type="submit" value="Save">
                     </form>
