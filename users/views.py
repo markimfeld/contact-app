@@ -1,12 +1,21 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout as do_logout
 from django.contrib.auth import authenticate
-# from django.contrib.auth.forms import AuthenticationForm
-from .forms import CustomAuthForm, CustomUserCreationForm
+from .forms import (
+    CustomAuthForm, 
+    CustomUserCreationForm, 
+    CustomUserChangeForm,
+    CustomPasswordChangeForm,
+)
 from django.contrib.auth import login as do_login
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import (
+    UserCreationForm, 
+    PasswordChangeForm,
+)
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import update_session_auth_hash
 import datetime
+
 
 date = datetime.date.today
 
@@ -60,3 +69,42 @@ def logout(request):
     # finish session
     do_logout(request)
     return redirect('/users/login')
+
+@login_required
+def edit_user(request):
+
+    form = CustomUserChangeForm()
+
+    if request.method == 'POST':
+        form = CustomUserChangeForm(data=request.POST, instance=request.user)
+
+        if form.is_valid():
+            user = form.save()
+
+            if user is not None:
+                return redirect('/profile')
+    else:
+        form = CustomUserChangeForm(instance=request.user)
+            
+
+    context = {'form': form, 'date': date}
+    return render(request, 'users/edit_user.html', context)
+
+@login_required
+def password_change(request):
+
+    if request.method == 'POST':
+        form = CustomPasswordChangeForm(data=request.POST, user=request.user)
+
+        if form.is_valid():
+            new_password = form.save()
+            update_session_auth_hash(request, form.user)
+
+            if new_password is not None:
+                return redirect('/profile')
+    else:
+        form = CustomPasswordChangeForm(user=request.user)
+
+    context = {'form': form, 'date': date}
+
+    return render(request, 'users/change_password.html', context)
