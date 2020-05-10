@@ -14,6 +14,7 @@ from django.contrib.auth.forms import (
 )
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
+from django.contrib import messages
 import datetime
 
 
@@ -80,6 +81,7 @@ def edit_user(request):
 
         if form.is_valid():
             user = form.save()
+            messages.success(request, 'Your profile have been edited successfully!')
 
             if user is not None:
                 return redirect('/profile')
@@ -99,6 +101,7 @@ def password_change(request):
         if form.is_valid():
             new_password = form.save()
             update_session_auth_hash(request, form.user)
+            messages.success(request, 'Your password has been changed successfully!')
 
             if new_password is not None:
                 return redirect('/profile')

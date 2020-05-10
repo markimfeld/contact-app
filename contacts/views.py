@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from contacts.models import Contact
 from contacts.forms import ContactForm
+from django.contrib import messages
 import datetime
 
 date = datetime.date.today
@@ -67,6 +68,7 @@ def create_contact(request):
             contact = form.save(commit=False)
             contact.user = request.user
             contact.save()
+            messages.success(request, 'Contact created successfully!') 
 
             if contact is not None:
                 return redirect('/contacts')
@@ -91,6 +93,7 @@ def edit_contact(request, pk):
             contact = form.save(commit=False)
             contact.user = request.user
             contact.save()
+            messages.success(request, 'Your contact has been updated successfully!')
 
             if contact is not None:
                 return redirect('/contacts')
