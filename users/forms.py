@@ -60,6 +60,7 @@ class CustomUserChangeForm(forms.ModelForm):
     username = forms.CharField(
         widget = forms.TextInput(
             attrs = {
+                'placeholder': 'Username..',
                 'class': 'form-control bg-custom text-white rounded',
             }
         )
@@ -67,6 +68,7 @@ class CustomUserChangeForm(forms.ModelForm):
     first_name = forms.CharField(
         widget = forms.TextInput(
             attrs = {
+                'placeholder': 'First name..',
                 'class': 'form-control bg-custom text-white rounded',
             }
         )
@@ -74,6 +76,7 @@ class CustomUserChangeForm(forms.ModelForm):
     last_name = forms.CharField(
         widget = forms.TextInput(
             attrs = {
+                'placeholder': 'Last name..',
                 'class': 'form-control bg-custom text-white rounded',
             }
         )
@@ -81,6 +84,7 @@ class CustomUserChangeForm(forms.ModelForm):
     email = forms.EmailField(
         widget = forms.TextInput(
             attrs = {
+                'placeholder': 'Email..',
                 'class': 'form-control bg-custom text-white rounded',
             }
         )
