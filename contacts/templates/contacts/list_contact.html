@@ -41,7 +41,7 @@
         {% empty %}
         <div class="row mx-auto">
             <div class="col-md-12 my-5">
-                <div class="alert alert-primary mx-auto" role="alert">
+                <div class="alert alert-secondary mx-auto" role="alert">
                     There are not contacts saved yet! <a href="contacts/create"
                         class="alert-link btn-block text-center">Add
                         new
@@ -51,10 +51,12 @@
         </div>
         {% endfor %}
     </div>
+    {% if contacts %}
     <div class="d-flex justify-content-end">
         <a href="contacts/create" class="btn btn-success">Add new contact</a>
     </div>
     <div style="height: 100px;"></div>
+    {% endif %}
 </div>
 
 {% endblock %}
